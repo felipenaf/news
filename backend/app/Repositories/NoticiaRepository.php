@@ -4,7 +4,7 @@ class NoticiaRepository
 {
     private $model;
 
-    public function __construct(NoticiaModel $model)
+    public function __construct(Noticia $model)
     {
         $this->model = $model;
     }
