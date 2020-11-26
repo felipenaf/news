@@ -15,11 +15,11 @@ class Categoria extends Model
     {
         try {
             $query = "select * from $this->tabela where id = :id";
-            $stmt = $this->con->prepare($query);
+            $stmt = $this->conn->prepare($query);
             $stmt->bindValue(':id', $id);
             $stmt->execute();
 
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $stmt->fetch();
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }

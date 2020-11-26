@@ -2,8 +2,6 @@
 
 require 'vendor/autoload.php';
 
-echo 'hello world';
-
 /* conexão */
 // $con = Connection::getConnection();
 // $sql = 'select * from noticia';
@@ -12,8 +10,13 @@ echo 'hello world';
 // var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));
 
 /* models */
-$noticia = new Noticia();
+$noticia = new Noticia('teste', 'fikgbewfijgfe figfwe fgewuyi');
+$noticia = $noticia->find(2);
+
 var_dump([
-    $noticia->all(),
-    $noticia->find(1),
+    $noticia->titulo,
+    $noticia->conteudo,
+    $noticia->categoria->nome,
 ]);
+
+// var_dump($noticia->all());
