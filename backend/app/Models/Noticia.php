@@ -51,4 +51,13 @@ class Noticia extends Model
 
     }
 
+    public function __get($attribute)
+    {
+        if ($attribute == 'titulo') {
+            return '|| -> XX ' . $this->$attribute . ' XX <- ||';
+        }
+
+        return $this->$attribute;
+    }
+
 }
