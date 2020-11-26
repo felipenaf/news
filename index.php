@@ -13,4 +13,7 @@ echo 'hello world';
 
 /* models */
 $noticia = new Noticia();
-var_dump($noticia->find(1));
+var_dump([
+    $noticia->all(),
+    $noticia->find(1),
+]);

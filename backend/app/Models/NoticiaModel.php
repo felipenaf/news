@@ -28,8 +28,21 @@ class Noticia extends Model
             $stmt = $this->conn->prepare($query);
             $stmt->bindValue(':id', $id);
             $stmt->execute();
-
             return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        } finally {
+            $this->closeAll();
+        }
+
+    }
+
+    public function all()
+    {
+        try {
+            $stmt = $this->conn->query("select * from $this->tabela");
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (\Throwable $th) {
             return $th->getMessage();
         } finally {

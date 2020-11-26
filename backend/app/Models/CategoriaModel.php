@@ -2,8 +2,8 @@
 
 class Categoria extends Model
 {
-    private $id;
-    private $nome;
+    protected $id;
+    protected $nome;
 
     public function __construct($nome = null)
     {
