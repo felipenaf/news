@@ -1,16 +1,17 @@
 <?php
 
-class CategoriaModel extends Model
+class Categoria extends Model
 {
-    private $entity;
-    private $tabela = 'noticia';
+    private $id;
+    private $nome;
 
-    public function __construct(CategoriaEntity $entity)
+    public function __construct($nome = null)
     {
-        $this->entity = $entity;
+        parent::__construct();
+        $this->nome = $nome;
     }
 
-    public function find($id)
+    public function find(int $id)
     {
         try {
             $query = "select * from $this->tabela where id = :id";
